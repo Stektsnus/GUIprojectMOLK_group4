@@ -9,6 +9,7 @@
 
   <Grid Background="#333333">
 
+
         <!--<Label Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="30" Width="50" RenderTransformOrigin="0.94,0.567" Margin="0,-3,0,0"/>
         <Label Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="30" Width="62" Grid.ColumnSpan="3" Margin="38,-3,0,0"/>-->
 
@@ -19,6 +20,7 @@
             </Button>
         </DockPanel>
         <StackPanel Height="20" Background="#171717" VerticalAlignment="Top"></StackPanel>
+
 
     </Grid>
 </Window>

@@ -15,6 +15,7 @@
             <TextBox x:Name="fileBox" Width="250" ></TextBox>
             <Button x:Name="fileButton" Width="20" Height="20" Click="fileButton_Click"></Button>
             <Button Height="100" Width="100" Click="Button_Click" Margin="10">Test</Button>
+            
         </StackPanel>
     </Grid>
 </Window>

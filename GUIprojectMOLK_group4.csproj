@@ -96,6 +96,40 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="image\extract.png" />
+    <Resource Include="image\extract2.png" />
+    <Resource Include="image\extract3.png" />
+    <Resource Include="image\files %281%29.png" />
+    <Resource Include="image\files %282%29.png" />
+    <Resource Include="image\files %283%29.png" />
+    <Resource Include="image\files %284%29.png" />
+    <Resource Include="image\files.png" />
+    <Resource Include="image\folder %2822%29.png" />
+    <Resource Include="image\folder %2823%29.png" />
+    <Resource Include="image\folder %2824%29.png" />
+    <Resource Include="image\folder %2825%29.png" />
+    <Resource Include="image\folder %2826%29.png" />
+    <Resource Include="image\information %281%29.png" />
+    <Resource Include="image\information %282%29.png" />
+    <Resource Include="image\information %283%29.png" />
+    <Resource Include="image\information %284%29.png" />
+    <Resource Include="image\information %285%29.png" />
+    <Resource Include="image\milklogo.png" />
+    <Resource Include="image\mlogo128x128 %281%29.png" />
+    <Resource Include="image\mlogo128x128.png" />
+    <Resource Include="image\mlogo16x16.png" />
+    <Resource Include="image\mlogo32x32.png" />
+    <Resource Include="image\mlogo64x64.png" />
+    <Resource Include="image\settings %2820%29.png" />
+    <Resource Include="image\settings %2821%29.png" />
+    <Resource Include="image\settings %2822%29.png" />
+    <Resource Include="image\settings %2823%29.png" />
+    <Resource Include="image\settings %2824%29.png" />
+    <Resource Include="image\zip %284%29.png" />
+    <Resource Include="image\zip %285%29.png" />
+    <Resource Include="image\zip %286%29.png" />
+    <Resource Include="image\zip %288%29.png" />
+    <Resource Include="image\zip .png" />
     <Content Include="Molk\molk.exe" />
     <Content Include="Molk\unmolk.exe" />
   </ItemGroup>

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,18 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Forms;
 
 namespace GUIprojectMOLK_group4
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Unmolk.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Unmolk : Page
     {
-        private void Unmolk_Click(object sender, RoutedEventArgs e)
+        public Unmolk()
         {
-            mainFrame.NavigationService.Navigate(new Unmolk());
+            InitializeComponent();
         }
     }
 }

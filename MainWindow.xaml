@@ -9,36 +9,16 @@
 
   <Grid Background="#333333">
 
-    <!--<Grid.RowDefinitions>
-      <RowDefinition Height="20" />
-      <RowDefinition Height="auto"/>
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="60" />
-      <ColumnDefinition Width="auto"/>
-      <ColumnDefinition/>
-    </Grid.ColumnDefinitions>
-      
-    <Rectangle Height="1080"  Fill="#292929" Grid.RowSpan="2"/>
-
-        <Rectangle Height="20" Fill="#171717" Grid.ColumnSpan="3" Margin="-18,0,0,1060" />-->
-        <DockPanel HorizontalAlignment="Left" Background="#292929">
-            <Button DockPanel.Dock="Bottom" Height="100">TEst</Button>
-            <!--<Button x:Name="Unmolk" DockPanel.Dock="Top" Height="50" Width="50" Click="Unmolk_Click">
-                    --><!--<Image Source="image\Mexfolder64.png"></Image>--><!--
-                </Button>-->
-        </DockPanel>
-
-
         <!--<Label Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="30" Width="50" RenderTransformOrigin="0.94,0.567" Margin="0,-3,0,0"/>
-    <Label Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="30" Width="62" Grid.ColumnSpan="3" Margin="38,-3,0,0"/>-->
-        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
-    
-    <!--<Grid>
-      <Button x:Name="Unmolk" Height="50" Margin="0,47,0,983" Click="Unmolk_Click">
-        <Image Source="image\Mexfolder64.png"></Image>
-      </Button>
-    </Grid>-->
+        <Label Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="30" Width="62" Grid.ColumnSpan="3" Margin="38,-3,0,0"/>-->
 
-  </Grid>
+        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
+        <DockPanel HorizontalAlignment="Left" LastChildFill="False" MinWidth="50" Background="#292929" Margin="0,20,0,0">
+            <Button DockPanel.Dock="Top" x:Name="Unmolk" Height="50" Click="Unmolk_Click">
+                <Image Source="image\Mexfolder64.png"></Image>
+            </Button>
+        </DockPanel>
+        <StackPanel Height="20" Background="#171717" VerticalAlignment="Top"></StackPanel>
+
+    </Grid>
 </Window>

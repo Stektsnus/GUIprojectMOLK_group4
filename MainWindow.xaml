@@ -5,15 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUIprojectMOLK_group4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="1200">
     <Grid>
-        <StackPanel VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" VerticalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" Text="Mölk" />
+            <TextBlock HorizontalAlignment="Center">Files</TextBlock>
+            <DataGrid x:Name="molkFileBox" Height="300" Width="400" />
+            <Button x:Name="molkFileButton" Width="20" Height="20" Click="fileButton_Click"></Button>
+            <TextBlock HorizontalAlignment="Center">Destination</TextBlock>
+            <TextBox x:Name="molkDestinationBox" Width="250" ></TextBox>
+            <Button x:Name="molkDestinationButton" Width="20" Height="20" Click="destinationButton_Click"></Button>
+            <TextBlock HorizontalAlignment="Center"> Folder name</TextBlock>
+            <TextBox x:Name="molkFolerName" Width="250" />
+            <Button Height="100" Width="100" Click="Button_Click" Margin="10">Test</Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" Text="Unmölk" />
             <TextBlock>destination</TextBlock>
-            <TextBox x:Name="destinationBox" Width="250" ></TextBox>
-            <Button x:Name="destinationButton" Width="20" Height="20" Click="destinationButton_Click"></Button>
+            <TextBox x:Name="unmolkFileBox" Width="250" ></TextBox>
+            <Button x:Name="unmolkFileButton" Width="20" Height="20" Click="fileButton_Click"></Button>
+            <TextBox x:Name="unmolkDestinationBox" Width="250" ></TextBox>
+            <Button x:Name="unmolkDestinationButton" Width="20" Height="20" Click="destinationButton_Click"></Button>
             <TextBlock>file</TextBlock>
-            <TextBox x:Name="fileBox" Width="250" ></TextBox>
-            <Button x:Name="fileButton" Width="20" Height="20" Click="fileButton_Click"></Button>
             <Button Height="100" Width="100" Click="Button_Click" Margin="10">Test</Button>
         </StackPanel>
     </Grid>

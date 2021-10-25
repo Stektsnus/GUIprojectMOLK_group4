@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace GUIprojectMOLK_group4
 {
@@ -23,6 +24,8 @@ namespace GUIprojectMOLK_group4
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<FileData> SelectedFiles = new List<FileData>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,9 +33,24 @@ namespace GUIprojectMOLK_group4
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (!CheckValidName(molkFolerName.Text))
+            {
+                Trace.WriteLine("The given name was not valid: " + molkFolerName.Text);
+                return;
+            }
+            Process process = CreateProcess();
+            MolkFiles(process, molkFileBox);
+
+            
+        }
+
+        /// <summary>
+        /// Creates a cmd process inside the Molk folder.
+        /// </summary>
+        /// <returns>The process.</returns>
+        private Process CreateProcess()
+        {
             Process process = new Process();
-
-
             string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Molk";
             var startInfo = new ProcessStartInfo
             {
@@ -43,14 +61,39 @@ namespace GUIprojectMOLK_group4
                 CreateNoWindow = true,
                 UseShellExecute = false
             };
-
             process.StartInfo = startInfo;
-            process.Start();
+            return process;
+        }
 
-            string commandString = $"molk -j \"{destinationBox.Text}\\archive2.molk\" \"{fileBox.Text}\"";
+        private bool MolkFiles(Process process, ItemsControl files)
+        {
+            foreach (var file in files.Items.ToString())
+            {
+                try
+                {
+                    string commandString = $"molk -j \"{molkDestinationBox.Text}\\{molkFolerName.Text}\" \"{file}\"";
+                    process.StandardInput.WriteLine(commandString);
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
-            process.StandardInput.WriteLine(commandString);
-            
+        /// <summary>
+        /// Checks the input of a given folder name.
+        /// </summary>
+        /// <param name="String"></param>
+        /// <returns>true if its valid. false if its unvalid.</returns>
+        private bool CheckValidName(string String)
+        {
+            if (String == "")
+            {
+                return false;
+            }
+            return true;
         }
 
         private void destinationButton_Click(object sender, RoutedEventArgs e)
@@ -59,18 +102,23 @@ namespace GUIprojectMOLK_group4
             folderBrowserDialog.RootFolder = Environment.SpecialFolder.MyComputer;
             if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                destinationBox.Text = folderBrowserDialog.SelectedPath;
+                molkDestinationBox.Text = folderBrowserDialog.SelectedPath;
             }
         }
         private void fileButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = @"C:\";
+            openFileDialog.Multiselect = true;
             openFileDialog.RestoreDirectory = true;
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                string fileSelected = openFileDialog.FileName;
-                fileBox.Text = fileSelected;
+                foreach(string fileName in openFileDialog.FileNames)
+                {
+                    FileData item = new FileData(fileName);
+                    SelectedFiles.Add(item);
+                }
+                molkFileBox.ItemsSource = SelectedFiles;
             }
         }
     }

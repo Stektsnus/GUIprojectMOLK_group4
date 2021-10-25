@@ -105,12 +105,10 @@
     <Resource Include="image\files %284%29.png" />
     <Resource Include="image\files.png" />
     <Resource Include="image\folder %2822%29.png" />
-    <Resource Include="image\folder %2823%29.png" />
     <Resource Include="image\folder %2824%29.png" />
     <Resource Include="image\folder %2825%29.png" />
     <Resource Include="image\folder %2826%29.png" />
     <Resource Include="image\information %281%29.png" />
-    <Resource Include="image\information %282%29.png" />
     <Resource Include="image\information %283%29.png" />
     <Resource Include="image\information %284%29.png" />
     <Resource Include="image\information %285%29.png" />
@@ -130,6 +128,7 @@
     <Resource Include="image\zip %286%29.png" />
     <Resource Include="image\zip %288%29.png" />
     <Resource Include="image\zip .png" />
+    <Resource Include="image\Mexfolder64.png" />
     <Content Include="Molk\molk.exe" />
     <Content Include="Molk\unmolk.exe" />
   </ItemGroup>

@@ -25,7 +25,7 @@
             <Button x:Name="molkDestinationButton" Width="20" Height="20" Click="destinationButton_Click"></Button>
             <TextBlock HorizontalAlignment="Center"> Folder name</TextBlock>
             <TextBox x:Name="molkFolerName" Width="250" />
-            <Button Height="100" Width="100" Click="Button_Click" Margin="10">Test</Button>
+            <Button x:Name="molkButton" Height="100" Width="100" Click="molkButton_Click" Margin="10">Test</Button>
         </StackPanel>
         <StackPanel Grid.Column="1" VerticalAlignment="Center">
             <TextBlock HorizontalAlignment="Center" Text="Unmölk" />
@@ -35,7 +35,7 @@
             <TextBox x:Name="unmolkDestinationBox" Width="250" ></TextBox>
             <Button x:Name="unmolkDestinationButton" Width="20" Height="20" Click="destinationButton_Click"></Button>
             <TextBlock>file</TextBlock>
-            <Button Height="100" Width="100" Click="Button_Click" Margin="10">Test</Button>
+            <Button Height="100" Width="100" Margin="10">Test</Button>
         </StackPanel>
     </Grid>
 </Window>

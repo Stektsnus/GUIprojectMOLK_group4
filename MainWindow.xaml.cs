@@ -31,17 +31,15 @@ namespace GUIprojectMOLK_group4
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void molkButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!CheckValidName(molkFolerName.Text))
-            {
-                Trace.WriteLine("The given name was not valid: " + molkFolerName.Text);
-                return;
-            }
+            //if (!CheckValidName(molkFolerName.Text))
+            //{
+            //    Trace.WriteLine("The given name was not valid: " + molkFolerName.Text);
+            //    return;
+            //}
             Process process = CreateProcess();
             MolkFiles(process, molkFileBox);
-
-            
         }
 
         /// <summary>
@@ -62,22 +60,17 @@ namespace GUIprojectMOLK_group4
                 UseShellExecute = false
             };
             process.StartInfo = startInfo;
+            process.Start();
             return process;
         }
 
         private bool MolkFiles(Process process, ItemsControl files)
         {
-            foreach (var file in files.Items.ToString())
+            
+            foreach (FileData file in SelectedFiles.Values.ToList())
             {
-                try
-                {
-                    string commandString = $"molk -j \"{molkDestinationBox.Text}\\{molkFolerName.Text}.molk\" \"{file}\"";
-                    process.StandardInput.WriteLine(commandString);
-                }
-                catch
-                {
-                    return false;
-                }
+                string commandString = $"molk -j \"{molkDestinationBox.Text}\\{molkFolerName.Text}.molk\" \"{file.Path}\"";
+                process.StandardInput.WriteLine(commandString);
             }
             return true;
         }

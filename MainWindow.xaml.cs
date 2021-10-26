@@ -128,6 +128,28 @@ namespace GUIprojectMOLK_group4
             }
             molkFileBox.ItemsSource = SelectedFiles.Values.ToList();
         }
+
+        private void unmolkFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = recentDirectory;
+            openFileDialog.Multiselect = true;
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                foreach (string fileName in openFileDialog.FileNames)
+                {
+                    if (SelectedFiles.ContainsKey(fileName))
+                    {
+                        continue;
+                    }
+                    FileData item = new FileData(fileName);
+                    SelectedFiles.Add(fileName, item);
+                    recentDirectory = System.IO.Path.GetDirectoryName(fileName);
+                }
+                molkFileBox.ItemsSource = SelectedFiles.Values.ToList();
+            }
+        }
     }
 
     //                                 HERE IS UNMOLK CODE

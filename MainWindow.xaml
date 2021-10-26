@@ -29,12 +29,12 @@
         </StackPanel>
         <StackPanel Grid.Column="1" VerticalAlignment="Center">
             <TextBlock HorizontalAlignment="Center" Text="Unmölk" />
-            <TextBlock>destination</TextBlock>
-            <TextBox x:Name="unmolkFileBox" Width="250" ></TextBox>
-            <Button x:Name="unmolkFileButton" Width="20" Height="20" Click="fileButton_Click"></Button>
+            <DataGrid x:Name="unmolkFileBox" Width="400" Height="300"></DataGrid>
+            <TextBox x:Name="unmolkFolderName" Width="250" ></TextBox>
+            <Button x:Name="unmolkFileButton" Width="100" Height="20" Content="File"></Button>
             <TextBox x:Name="unmolkDestinationBox" Width="250" ></TextBox>
-            <Button x:Name="unmolkDestinationButton" Width="20" Height="20" Click="destinationButton_Click"></Button>
-            <TextBlock>file</TextBlock>
+            <Button x:Name="unmolkDestinationButton" Width="100" Height="20" Content="Destination" ></Button>
+            <TextBlock>File</TextBlock>
             <Button Height="100" Width="100" Margin="10">Test</Button>
         </StackPanel>
     </Grid>

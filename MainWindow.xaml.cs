@@ -27,5 +27,20 @@ namespace GUIprojectMOLK_group4
         {
             mainFrame.NavigationService.Navigate(new Unmolk());
         }
+
+        private void Molk_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.NavigationService.Navigate(new Molk());
+        }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Info_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

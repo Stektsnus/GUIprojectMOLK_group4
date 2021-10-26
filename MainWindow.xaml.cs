@@ -24,8 +24,8 @@ namespace GUIprojectMOLK_group4
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<FileData> SelectedFiles = new List<FileData>();
-
+        Dictionary<string, FileData> SelectedFiles = new Dictionary<string, FileData>();
+        string recentDirectory = @"C:/";
         public MainWindow()
         {
             InitializeComponent();
@@ -71,7 +71,7 @@ namespace GUIprojectMOLK_group4
             {
                 try
                 {
-                    string commandString = $"molk -j \"{molkDestinationBox.Text}\\{molkFolerName.Text}\" \"{file}\"";
+                    string commandString = $"molk -j \"{molkDestinationBox.Text}\\{molkFolerName.Text}.molk\" \"{file}\"";
                     process.StandardInput.WriteLine(commandString);
                 }
                 catch
@@ -108,18 +108,37 @@ namespace GUIprojectMOLK_group4
         private void fileButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = @"C:\";
+            openFileDialog.InitialDirectory = recentDirectory;
             openFileDialog.Multiselect = true;
             openFileDialog.RestoreDirectory = true;
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 foreach(string fileName in openFileDialog.FileNames)
                 {
+                    if (SelectedFiles.ContainsKey(fileName))
+                    {
+                        continue;
+                    }
                     FileData item = new FileData(fileName);
-                    SelectedFiles.Add(item);
+                    SelectedFiles.Add(fileName, item);
+                    recentDirectory = System.IO.Path.GetDirectoryName(fileName);
                 }
-                molkFileBox.ItemsSource = SelectedFiles;
+                molkFileBox.ItemsSource = SelectedFiles.Values.ToList();
             }
         }
+
+        private void fileRemoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(FileData item in molkFileBox.SelectedItems)
+            {
+                SelectedFiles.Remove(item.Path);
+            }
+            molkFileBox.ItemsSource = SelectedFiles.Values.ToList();
+        }
     }
+
+    //                                 HERE IS UNMOLK CODE
+
+
+
 }

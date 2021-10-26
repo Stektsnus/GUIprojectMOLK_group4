@@ -17,8 +17,9 @@
         <StackPanel Grid.Column="0" VerticalAlignment="Center">
             <TextBlock HorizontalAlignment="Center" Text="Mölk" />
             <TextBlock HorizontalAlignment="Center">Files</TextBlock>
-            <DataGrid x:Name="molkFileBox" Height="300" Width="400" />
-            <Button x:Name="molkFileButton" Width="20" Height="20" Click="fileButton_Click"></Button>
+            <DataGrid x:Name="molkFileBox" IsReadOnly="True" SelectionUnit="FullRow" SelectionMode="Extended" Height="300" Width="400" />
+            <Button x:Name="molkFileButton" Width="100" Height="20" Click="fileButton_Click" Content="Add"></Button>
+            <Button x:Name="molkFileRemoveButton" Width="100" Height="20" Click="fileRemoveButton_Click" Content="Remove"></Button>
             <TextBlock HorizontalAlignment="Center">Destination</TextBlock>
             <TextBox x:Name="molkDestinationBox" Width="250" ></TextBox>
             <Button x:Name="molkDestinationButton" Width="20" Height="20" Click="destinationButton_Click"></Button>

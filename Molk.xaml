@@ -75,26 +75,27 @@
             </Style>
         </Grid.Resources>
         <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <DataGrid Margin="0,0,0,0" Width="500" MinHeight="100" MaxHeight="500"  Background="#333333"></DataGrid>
+            <DataGrid x:Name="molkFileBox" Margin="0,0,0,0" Width="500" MinHeight="100" MaxHeight="500"  Background="#333333"></DataGrid>
             <DockPanel LastChildFill="False" Margin="0,5,0,0">
-                <Button DockPanel.Dock="Right" Width="75" Margin="10,0,0,0" Foreground="White">Add Files</Button>
-                <Button DockPanel.Dock="Right" Width="85" Margin="10,0,0,0" Foreground="White">Remove File</Button>
+                <Button x:Name="fileButton" DockPanel.Dock="Right" Width="75" Margin="10,0,0,0" Foreground="White" Click="fileButton_Click">Add Files</Button>
+                <Button x:Name="fileRemoveButton" DockPanel.Dock="Right" Width="85" Margin="10,0,0,0" Foreground="White" Click="fileRemoveButton_Click">Remove File</Button>
                 <Button DockPanel.Dock="Right" Width="50" Foreground="White">Clear</Button>
             </DockPanel>
             
             
             <StackPanel>
                 <TextBlock>Destination</TextBlock>
-                <TextBox></TextBox>
-            </StackPanel>     
+                <TextBox x:Name="molkDestinationBox"></TextBox>
+            </StackPanel>
+            <Button x:Name="destinationButton" HorizontalAlignment="Right" Width="125" Foreground="White" Margin="0,5,0,0" Click="destinationButton_Click">Choose Destination</Button>
             
             <StackPanel>
                 <TextBlock>File Name</TextBlock>
-                <TextBox></TextBox>
+                <TextBox x:Name="molkFileName"></TextBox>
             </StackPanel>
             
             <StackPanel>
-                <Button HorizontalAlignment="Right" Height="25" Width="100" Foreground="White">ARCHIVE</Button>
+                <Button x:Name="molkButton" HorizontalAlignment="Right" Height="25" Width="100" Foreground="White" Click="molkButton_Click">ARCHIVE</Button>
             </StackPanel>
         
         </StackPanel>

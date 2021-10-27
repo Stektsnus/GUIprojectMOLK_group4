@@ -7,28 +7,35 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-  <Grid Background="#333333">
+    <Grid Background="#333333">
+
 
 
         <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
         <DockPanel HorizontalAlignment="Left" LastChildFill="False" MinWidth="50" Background="#292929" Margin="0,20,0,0">
-            <Button DockPanel.Dock="Top" x:Name="Unmolk" Height="50" Click="Unmolk_Click">
+            <Button  DockPanel.Dock="Top" x:Name="Unmolk" Height="50" Click="Unmolk_Click" Background="#00000000" BorderBrush="{x:Null}">
                 <Image Source="image\Mexfolder64.png"></Image>
             </Button>
-            <Button Name="zipfile" Height="50" DockPanel.Dock="Top" >
+            <Button Name="zipfile" Height="50" DockPanel.Dock="Top" BorderBrush="#00000000" Background="#00000000" >
                 <Image Source="image\zip (4).png"></Image>
             </Button>
-            <Button Name="info" Height="50" DockPanel.Dock="Bottom" >
+            <Button Name="info" Height="50" DockPanel.Dock="Bottom" Background="#00000000" BorderBrush="#00000000"  >
                 <Image Source="image\information (4).png"></Image>
             </Button>
-            <Button Name="settings" Height="50" DockPanel.Dock="Bottom" >
-                <Image Source="image\settings (20).png"></Image>
+            <Button Name="settings" Height="50" DockPanel.Dock="Bottom" BorderBrush="#00000000" Background="#00000000" Foreground="#00000000" >
+                <Image Source="image\settings (20).png" OpacityMask="Black"></Image>
             </Button>
-            
+
         </DockPanel>
         <StackPanel Height="20" Background="#171717" VerticalAlignment="Top"></StackPanel>
         <Label Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="30" Width="50" RenderTransformOrigin="0.94,0.567" Margin="0,-3,0,0"/>
         <Label Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="30" Width="62" Grid.ColumnSpan="3" Margin="38,-3,0,0"/>
+
+        <Image Source="image\milklogo.png" Margin="267,51,-42,36"/>
+        <Label Content="HI!" HorizontalAlignment="Left" Margin="102,76,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="66" Width="96" FontSize="25"/>
+        <Label Content="and welcome to Mölk.zip " HorizontalAlignment="Left" Margin="102,128,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="234" FontSize="20"/>
+        <Label Content="how can i assist you today?  :D" HorizontalAlignment="Left" Margin="102,162,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="282" FontSize="20"/>
+
 
 
     </Grid>

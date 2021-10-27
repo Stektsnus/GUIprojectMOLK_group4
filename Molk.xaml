@@ -75,7 +75,8 @@
             </Style>
         </Grid.Resources>
         <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <DataGrid Margin="0,0,0,0" Width="500" MinHeight="100" MaxHeight="500"  Background="#333333"></DataGrid>
+            <DataGrid Margin="0,0,0,0" Width="500" MinHeight="100" MaxHeight="500"  Background="#333333"/> 
+
             <DockPanel LastChildFill="False" Margin="0,5,0,0">
                 <Button DockPanel.Dock="Right" Width="75" Margin="10,0,0,0" Foreground="White">Add Files</Button>
                 <Button DockPanel.Dock="Right" Width="85" Margin="10,0,0,0" Foreground="White">Remove File</Button>

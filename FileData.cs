@@ -9,8 +9,8 @@ namespace GUIprojectMOLK_group4
     class FileData
     {
         public string Name { get; set; }
-        public float Size { get; set; }
-        public float CompressedSize { get; set; }
+        private float _size { get; set; }
+        private float _compressedSize { get; set; }
         public string Path { get; set; }
         public FileData() {}
         public FileData(string name) 
@@ -21,8 +21,8 @@ namespace GUIprojectMOLK_group4
         public FileData(string name, float size, float compressedSize)
         {
             Name = name;
-            Size = size;
-            CompressedSize = compressedSize;
+            _size = size;
+            _compressedSize = compressedSize;
         }
 
         private string ExtractName(string path)

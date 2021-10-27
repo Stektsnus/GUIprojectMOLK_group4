@@ -20,36 +20,37 @@ using System.Xml;
 namespace GUIprojectMOLK_group4
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UnmolkWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UnmolkWindow : Window
     {
         Dictionary<string, FileData> SelectedFiles = new Dictionary<string, FileData>();
+        string MolkFolderPath = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Molk";
         string recentDirectory = @"C:/";
-        public MainWindow()
+        public UnmolkWindow()
         {
             InitializeComponent();
         }
 
-        private void molkButton_Click(object sender, RoutedEventArgs e)
+        private void unmolkButton_Click(object sender, RoutedEventArgs e)
         {
-            //if (!CheckValidName(molkFolerName.Text))
+            //if (!CheckValidName(unmolkFolerName.Text))
             //{
-            //    Trace.WriteLine("The given name was not valid: " + molkFolerName.Text);
+            //    Trace.WriteLine("The given name was not valid: " + unmolkFolerName.Text);
             //    return;
             //}
             Process process = CreateProcess();
-            MolkFiles(process, molkFileBox);
+            unmolkFiles(process, unmolkFileBox);
         }
 
         /// <summary>
-        /// Creates a cmd process inside the Molk folder.
+        /// Creates a cmd process inside the molk folder.
         /// </summary>
         /// <returns>The process.</returns>
         private Process CreateProcess()
         {
             Process process = new Process();
-            string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Molk";
+            string path = MolkFolderPath;
             var startInfo = new ProcessStartInfo
             {
                 WorkingDirectory = path,
@@ -64,12 +65,27 @@ namespace GUIprojectMOLK_group4
             return process;
         }
 
-        private bool MolkFiles(Process process, ItemsControl files)
+        private bool listFiles(Process process, ItemsControl files)
+        {
+            if (files.Items.Count == 0)
+            {
+                return false;
+            }
+
+            foreach (FileData file in SelectedFiles.Values.ToList())
+            {
+                string commandString = $"unmolk -l \"\"";
+                process.StandardInput.WriteLine(commandString);
+            }
+            return true;
+        }
+
+        private bool unmolkFiles(Process process, ItemsControl files)
         {
             
             foreach (FileData file in SelectedFiles.Values.ToList())
             {
-                string commandString = $"molk -j \"{molkDestinationBox.Text}\\{molkFolerName.Text}.molk\" \"{file.Path}\"";
+                string commandString = $"unmolk \"{unmolkFolerName.Text}\" -d \"{destinationBox.Text}\"";
                 process.StandardInput.WriteLine(commandString);
             }
             return true;
@@ -95,7 +111,7 @@ namespace GUIprojectMOLK_group4
             folderBrowserDialog.RootFolder = Environment.SpecialFolder.MyComputer;
             if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                molkDestinationBox.Text = folderBrowserDialog.SelectedPath;
+                destinationBox.Text = folderBrowserDialog.SelectedPath;
             }
         }
         private void fileButton_Click(object sender, RoutedEventArgs e)
@@ -116,39 +132,54 @@ namespace GUIprojectMOLK_group4
                     SelectedFiles.Add(fileName, item);
                     recentDirectory = System.IO.Path.GetDirectoryName(fileName);
                 }
-                molkFileBox.ItemsSource = SelectedFiles.Values.ToList();
+                unmolkFileBox.ItemsSource = SelectedFiles.Values.ToList();
             }
         }
 
-        private void fileRemoveButton_Click(object sender, RoutedEventArgs e)
+        private void removeFileButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach(FileData item in molkFileBox.SelectedItems)
+            foreach(FileData item in unmolkFileBox.SelectedItems)
             {
                 SelectedFiles.Remove(item.Path);
             }
-            molkFileBox.ItemsSource = SelectedFiles.Values.ToList();
+            unmolkFileBox.ItemsSource = SelectedFiles.Values.ToList();
         }
 
         private void unmolkFileButton_Click(object sender, RoutedEventArgs e)
         {
+            
+        }
+
+        private void addFileButton_Click(object sender, RoutedEventArgs e)
+        {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = recentDirectory;
-            openFileDialog.Multiselect = true;
+            openFileDialog.Filter = "Molk Files|*.molk";
             openFileDialog.RestoreDirectory = true;
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                foreach (string fileName in openFileDialog.FileNames)
-                {
-                    if (SelectedFiles.ContainsKey(fileName))
-                    {
-                        continue;
-                    }
-                    FileData item = new FileData(fileName);
-                    SelectedFiles.Add(fileName, item);
-                    recentDirectory = System.IO.Path.GetDirectoryName(fileName);
-                }
-                molkFileBox.ItemsSource = SelectedFiles.Values.ToList();
+                ProcessMolkFileContent(openFileDialog.FileName);
+
+                // Skicka och starta process som listar filerna i .molk-mappen
+                // Processera listan, gör om infon till FileData och lägg till i SelectedFiles
+
+                
+                unmolkFileBox.ItemsSource = SelectedFiles.Values.ToList();
             }
+        }
+
+        private void ProcessMolkFileContent(string fileName)
+        {
+            Process process = CreateProcess();
+            process.Start();
+            ConvertOutputToFileDataObjects(process, fileName);
+        }
+
+        private void ConvertOutputToFileDataObjects(Process process, string fileName)
+        {
+            string commandString = $"unmolk -l {fileName}";
+            string tempDataFileName = "tempfile.txt";
+            process.StandardInput.WriteLine($"{commandString} > {MolkFolderPath}\\{tempDataFileName} | type {MolkFolderPath}\\{tempDataFileName}");
         }
     }
 

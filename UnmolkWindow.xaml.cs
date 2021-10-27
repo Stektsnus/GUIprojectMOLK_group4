@@ -65,27 +65,20 @@ namespace GUIprojectMOLK_group4
             return process;
         }
 
-        private bool listFiles(Process process, ItemsControl files)
+        private bool unmolkFiles(Process process, ItemsControl files)
         {
-            if (files.Items.Count == 0)
+            if(destinationBox.Text == "")
             {
                 return false;
             }
-
-            foreach (FileData file in SelectedFiles.Values.ToList())
+            List<FileData> chosenFiles = new List<FileData>();
+            foreach(FileData item in unmolkFileBox.SelectedItems)
             {
-                string commandString = $"unmolk -l \"\"";
-                process.StandardInput.WriteLine(commandString);
+                chosenFiles.Add(item);
             }
-            return true;
-        }
-
-        private bool unmolkFiles(Process process, ItemsControl files)
-        {
-            
-            foreach (FileData file in SelectedFiles.Values.ToList())
+            foreach (FileData file in SelectedFiles.Values.ToList().Except(chosenFiles))
             {
-                string commandString = $"unmolk \"{unmolkFolerName.Text}\" -d \"{destinationBox.Text}\"";
+                string commandString = $"unmolk \"{chosenMolkFolder.Text}\" -d \"{destinationBox.Text}\" -x \"{file.Name}\"";
                 process.StandardInput.WriteLine(commandString);
             }
             return true;
@@ -114,27 +107,6 @@ namespace GUIprojectMOLK_group4
                 destinationBox.Text = folderBrowserDialog.SelectedPath;
             }
         }
-        private void fileButton_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = recentDirectory;
-            openFileDialog.Multiselect = true;
-            openFileDialog.RestoreDirectory = true;
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                foreach(string fileName in openFileDialog.FileNames)
-                {
-                    if (SelectedFiles.ContainsKey(fileName))
-                    {
-                        continue;
-                    }
-                    FileData item = new FileData(fileName);
-                    SelectedFiles.Add(fileName, item);
-                    recentDirectory = System.IO.Path.GetDirectoryName(fileName);
-                }
-                unmolkFileBox.ItemsSource = SelectedFiles.Values.ToList();
-            }
-        }
 
         private void removeFileButton_Click(object sender, RoutedEventArgs e)
         {
@@ -158,11 +130,9 @@ namespace GUIprojectMOLK_group4
             openFileDialog.RestoreDirectory = true;
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                chosenMolkFolder.Text = openFileDialog.FileName;
+                SelectedFiles = new Dictionary<string, FileData>();
                 ProcessMolkFileContent(openFileDialog.FileName);
-
-                // Skicka och starta process som listar filerna i .molk-mappen
-                // Processera listan, gör om infon till FileData och lägg till i SelectedFiles
-
                 
                 unmolkFileBox.ItemsSource = SelectedFiles.Values.ToList();
             }
@@ -177,9 +147,43 @@ namespace GUIprojectMOLK_group4
 
         private void ConvertOutputToFileDataObjects(Process process, string fileName)
         {
+
             string commandString = $"unmolk -l {fileName}";
             string tempDataFileName = "tempfile.txt";
-            process.StandardInput.WriteLine($"{commandString} > {MolkFolderPath}\\{tempDataFileName} | type {MolkFolderPath}\\{tempDataFileName}");
+            using (StreamWriter sw = new StreamWriter($"{MolkFolderPath}\\{tempDataFileName}", true)) {
+            }
+            process.StandardInput.WriteLine($"{commandString} > {MolkFolderPath}\\{tempDataFileName}");
+            Dictionary<string, FileData> newFileDataObjects = ExtractDataFromTextFile($"{MolkFolderPath}\\{tempDataFileName}");
+            foreach(KeyValuePair<string, FileData> fileDataObject in newFileDataObjects)
+            {
+                fileDataObject.Value.Path = $"{fileName}\\{fileDataObject.Key}";
+                SelectedFiles.Add(fileDataObject.Key, fileDataObject.Value);
+            }
+            string teststring = $"{MolkFolderPath}\\{tempDataFileName}";
+            File.Delete($"{MolkFolderPath}\\{tempDataFileName}");
+        }
+
+        private Dictionary<string, FileData> ExtractDataFromTextFile(string filePath)
+        {
+            List<string> readData = new List<string>();
+            StreamReader sr = new StreamReader(filePath);
+            string line = sr.ReadLine();
+            while(line != null)
+            {
+                readData.Add(line);
+                line = sr.ReadLine();
+            }
+            sr.Close();
+            Dictionary<string, FileData> newDataObjects = new Dictionary<string, FileData>();
+            for(var i = 3; i < readData.Count - 2; i++)
+            {
+                string[] splitData = readData[i].Split(' ');
+                string fileName = splitData[splitData.Length - 1];
+                FileData extractedFile = new FileData(fileName);
+                newDataObjects.Add(extractedFile.Name, extractedFile);
+            }
+            
+            return newDataObjects;
         }
     }
 

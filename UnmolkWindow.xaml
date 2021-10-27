@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="299,79,298.6,112.4">
             <TextBlock HorizontalAlignment="Center" Text="Unmölk" />
-            <TextBlock HorizontalAlignment="Center">Files</TextBlock>
+            <TextBlock x:Name="chosenMolkFolder" HorizontalAlignment="Center">Files</TextBlock>
             <DataGrid x:Name="unmolkFileBox" IsReadOnly="True" SelectionUnit="FullRow" SelectionMode="Extended" Height="300" Width="400" />
             <Button x:Name="addFileButton" Width="100" Height="20" Click="addFileButton_Click" Content="Add"></Button>
             <Button x:Name="removeFileRemoveButton" Width="100" Height="20" Click="removeFileButton_Click" Content="Remove"></Button>

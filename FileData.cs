@@ -13,10 +13,15 @@ namespace GUIprojectMOLK_group4
         private float _compressedSize { get; set; }
         public string Path { get; set; }
         public FileData() {}
-        public FileData(string name) 
+        public FileData(string path) 
         {
-            Name = ExtractName(name);
-            Path = name;
+            Name = ExtractName(path);
+            Path = path;
+        }
+        public FileData(string name, string path)
+        {
+            Name = name;
+            Path = path;
         }
         public FileData(string name, float size, float compressedSize)
         {

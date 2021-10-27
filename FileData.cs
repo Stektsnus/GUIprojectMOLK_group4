@@ -9,8 +9,8 @@ namespace GUIprojectMOLK_group4
     class FileData
     {
         public string Name { get; set; }
-        public float Size { get; set; }
-        public float CompressedSize { get; set; }
+        private float Size { get; set; }
+        private float CompressedSize { get; set; }
         public string Path { get; set; }
         public FileData() { }
         public FileData(string name)

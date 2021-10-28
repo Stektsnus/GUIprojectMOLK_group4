@@ -7,4 +7,113 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Unmolk">
+    <Page.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#D25517"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="Black"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="1" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid Background="#333333" Margin="50,20,0,0">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+            <Style TargetType="StackPanel">
+                <Setter Property="Margin" Value="0,25,0,0"/>
+            </Style>
+        </Grid.Resources>
+    <ScrollViewer>
+            <StackPanel Width="500">
+                <TextBlock x:Name="chosenMolkFolder" HorizontalAlignment="Left">Files</TextBlock>
+
+                <DataGrid x:Name="unmolkFileBox" HeadersVisibility="Column" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="150" MaxHeight="500" Background="#333333" BorderThickness="1" BorderBrush="#8F8F8F" IsReadOnly="True" SelectionMode="Extended" SelectionUnit="FullRow">
+                    <DataGrid.Resources>
+                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="MinWidth" Value="50"/>
+                            <Setter Property="Background" Value="#292929" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                        <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
+                            <Setter Property="Background" Value="#333333" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                
+                <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="500">
+                    
+                    <DockPanel LastChildFill="False" Margin="0,5,0,0">
+                        <Button x:Name="addFileButton" Click="addFileButton_Click" Content="Add" DockPanel.Dock="Right" Width="75" Margin="10,0,0,0" Foreground="White"></Button>
+                        <Button x:Name="removeFileRemoveButton" DockPanel.Dock="Right" Width="85" Margin="0,0,0,0" Foreground="White" Click="removeFileButton_Click" Content="Clear"></Button>
+                    </DockPanel>
+                    
+                    <StackPanel>
+                        <TextBlock>Destination</TextBlock>
+                        <TextBox x:Name="destinationBox"></TextBox>
+                    </StackPanel>
+                    <Button x:Name="destinationButton" HorizontalAlignment="Right" Width="125" Foreground="White" Margin="0,5,0,0" Click="destinationButton_Click">Choose Destination</Button>
+
+
+                    <StackPanel>
+                        <Button x:Name="unmolkButton" HorizontalAlignment="Right" Height="25" Width="100" Foreground="White" Click="unmolkButton_Click">UNARCHIVE</Button>
+                    </StackPanel>
+
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+        
 </Page>

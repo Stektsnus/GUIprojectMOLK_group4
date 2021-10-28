@@ -56,12 +56,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="empty.xaml.cs">
+      <DependentUpon>empty.xaml</DependentUpon>
+    </Compile>
     <Compile Include="settings.xaml.cs">
       <DependentUpon>settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileData.cs" />
+    <Compile Include="Molk.xaml.cs">
+      <DependentUpon>Molk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="info.xaml.cs">
+      <DependentUpon>info.xaml</DependentUpon>
     </Compile>
     <Compile Include="Unmolk.xaml.cs">
       <DependentUpon>Unmolk.xaml</DependentUpon>
     </Compile>
+    <Page Include="empty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="info.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,6 +93,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Molk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,6 +172,7 @@
     <Resource Include="image\moon128.png" />
     <Resource Include="image\sound128.png" />
     <Resource Include="image\sound64.png" />
+    <Resource Include="image\zip64.png" />
     <Content Include="Molk\molk.exe" />
     <Content Include="Molk\unmolk.exe" />
   </ItemGroup>

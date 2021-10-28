@@ -74,8 +74,10 @@
             </Style>
         </Grid.Resources>
     <ScrollViewer>
-            <StackPanel>
-                <DataGrid HeadersVisibility="Column" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="molkFileBox" Width="500" MinHeight="20" MaxHeight="500" Background="#333333" BorderThickness="1" BorderBrush="#8F8F8F" IsReadOnly="True" SelectionMode="Extended" SelectionUnit="FullRow">
+            <StackPanel Width="500">
+                <TextBlock x:Name="chosenMolkFolder" HorizontalAlignment="Left">Files</TextBlock>
+
+                <DataGrid x:Name="unmolkFileBox" HeadersVisibility="Column" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="20" MaxHeight="500" Background="#333333" BorderThickness="1" BorderBrush="#8F8F8F" IsReadOnly="True" SelectionMode="Extended" SelectionUnit="FullRow">
                     <DataGrid.Resources>
                         <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                             <Setter Property="MinWidth" Value="50"/>
@@ -92,19 +94,19 @@
                 <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="500">
                     
                     <DockPanel LastChildFill="False" Margin="0,5,0,0">
-                        <Button x:Name="fileButton" DockPanel.Dock="Right" Width="75" Margin="10,0,0,0" Foreground="White">Add Files</Button>
-                        <Button x:Name="fileRemoveButton" DockPanel.Dock="Right" Width="85" Margin="0,0,0,0" Foreground="White">Remove File</Button>
+                        <Button x:Name="addFileButton" Click="addFileButton_Click" Content="Add" DockPanel.Dock="Right" Width="75" Margin="10,0,0,0" Foreground="White"></Button>
+                        <Button x:Name="removeFileRemoveButton" DockPanel.Dock="Right" Width="85" Margin="0,0,0,0" Foreground="White" Click="removeFileButton_Click" Content="Clear"></Button>
                     </DockPanel>
                     
                     <StackPanel>
                         <TextBlock>Destination</TextBlock>
-                        <TextBox x:Name="molkDestinationBox"></TextBox>
+                        <TextBox x:Name="destinationBox"></TextBox>
                     </StackPanel>
                     <Button x:Name="destinationButton" HorizontalAlignment="Right" Width="125" Foreground="White" Margin="0,5,0,0" Click="destinationButton_Click">Choose Destination</Button>
 
 
                     <StackPanel>
-                        <Button HorizontalAlignment="Right" Height="25" Width="100" Foreground="White">UNARCHIVE</Button>
+                        <Button x:Name="unmolkButton" HorizontalAlignment="Right" Height="25" Width="100" Foreground="White" Click="unmolkButton_Click">UNARCHIVE</Button>
                     </StackPanel>
 
                 </StackPanel>

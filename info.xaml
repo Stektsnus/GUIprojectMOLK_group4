@@ -9,18 +9,18 @@
       Title="info">
 
     <Grid Background="#333333">
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="297,55,184,156" Width="319">
-            <StackPanel Orientation="Horizontal" Height="50">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="319">
+            <StackPanel Orientation="Horizontal" Height="50" Margin="10,50,10,10">
                 <Image Source="image/Mexfolder64.png" Height="50" Width="59" />
                 <Label Content="- Extract zip folders " Margin="0,10,0,0" Foreground="White" FontFamily="Consolas" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Height="50">
+            <StackPanel Orientation="Horizontal" Height="50" Margin="10">
                 <Image Source="image/zip (4).png" Height="50" Width="59" />
                 <Label Content="- Zip folders " Margin="0,10,0,0" Foreground="White" FontFamily="Consolas" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Margin="10">
                 <Image Source="image/information (4).png" Height="50" Width="59" />
-                <Label Content="- settings (nonefuntional) " Margin="0,10,0,0" Foreground="White" FontFamily="Consolas" />
+                <Label Content="- Settings (nonefuntional) " Margin="0,10,0,0" Foreground="White" FontFamily="Consolas" />
             </StackPanel>
             <StackPanel Orientation="Horizontal"/>
         </StackPanel>

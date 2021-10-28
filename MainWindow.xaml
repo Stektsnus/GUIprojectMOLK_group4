@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUIprojectMOLK_group4"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="550" Height="550" MinWidth="900" Width="900" 
+        Title="MainWindow" MinHeight="700" Height="700" MinWidth="900" Width="1100" 
         WindowStartupLocation="CenterScreen">
         
     <Window.Resources>
@@ -68,34 +68,34 @@
 
     <Grid Background="#333333">
         <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
-        <DockPanel HorizontalAlignment="Left" LastChildFill="False" MinWidth="50" Background="#292929" Margin="0,20,0,0" Width="55">
-            <Button  DockPanel.Dock="Top" x:Name="Unmolk" Height="50" Click="Unmolk_Click" Background="#00000000" BorderBrush="{x:Null}">
+        <DockPanel HorizontalAlignment="Left" LastChildFill="False" MinWidth="50" Background="#292929" Margin="0,30,0,0" Width="100">
+            <Button  DockPanel.Dock="Top" x:Name="Unmolk" Padding="10" Click="Unmolk_Click" Background="#00000000" BorderBrush="{x:Null}">
                 <Image Source="image\Mexfolder64.png"></Image>
             </Button>
-            <Label Width="46" DockPanel.Dock="Top" Height="19" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="Extract" FontSize="9" FontFamily="Consolas" Margin="4,0,5,0"></Label>
-            <Button Name="zipfile" Click="Molk_Click" Height="50" DockPanel.Dock="Top" BorderBrush="#00000000" Background="#00000000" >
+            <Label DockPanel.Dock="Top" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="Unmolk" FontSize="15" FontFamily="Consolas" Margin="4,0,5,0"></Label>
+            <Button Name="zipfile" Click="Molk_Click" Padding="10" DockPanel.Dock="Top" BorderBrush="#00000000" Background="#00000000" >
                 <Image Source="image\zip64.png"></Image>
             </Button>
-            <Label Width="46" DockPanel.Dock="Top" Height="19" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="Archive" FontSize="9" FontFamily="Consolas"></Label>
-            <Label Width="46" DockPanel.Dock="Bottom" Height="21" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content=" info" FontSize="9" FontFamily="Consolas"></Label>
+            <Label DockPanel.Dock="Top" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="Molk" FontSize="15" FontFamily="Consolas"></Label>
+            <Label DockPanel.Dock="Bottom" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="Info" FontSize="15" FontFamily="Consolas"></Label>
 
-            <Button Name="info" Click="info_Click" Height="50" DockPanel.Dock="Bottom" Background="#00000000" BorderBrush="#00000000"  >
+            <Button Name="info" Click="info_Click" Padding="10" DockPanel.Dock="Bottom" Background="#00000000" BorderBrush="#00000000"  >
                 <Image Source="image\information (4).png"></Image>
             </Button>
-            <Label Width="49" DockPanel.Dock="Bottom" Height="25" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="settings" FontSize="9" FontFamily="Consolas"></Label>
-            <Button Name="settings" Click="settings_Click" Height="50" DockPanel.Dock="Bottom" BorderBrush="#00000000" Background="#00000000" Foreground="#00000000" >
+            <Label DockPanel.Dock="Bottom" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="Settings" FontSize="15" FontFamily="Consolas"></Label>
+            <Button Name="settings" Click="settings_Click" Padding="10" DockPanel.Dock="Bottom" BorderBrush="#00000000" Background="#00000000" Foreground="#00000000" >
                 <Image Source="image\settings (20).png" OpacityMask="Black"></Image>
             </Button>
 
         </DockPanel>
-        <StackPanel Height="20" Background="#171717" VerticalAlignment="Top"></StackPanel>
-        <Button x:Name="homeButton" Content="Home" Click="homeButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="20" Width="42" RenderTransformOrigin="0.94,0.567" Background="#FF171717" BorderBrush="#FF171717"/>
         
+        <StackPanel Height="30" Background="#171717" VerticalAlignment="Top"></StackPanel>
+        <Button x:Name="homeButton" Content="Home" Click="homeButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="30" Width="60" RenderTransformOrigin="0.94,0.567" Background="#FF171717" BorderBrush="#FF171717"/>
         <Grid Visibility="Visible" x:Name="content">
             <Image Source="image\milklogo.png" Margin="301,51,-76,36"/>
-            <Label Content="HI!" HorizontalAlignment="Left" Margin="96,76,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="66" Width="96" FontSize="25" FontFamily="Consolas"/>
-            <Label Content="and welcome to Molk/Unmolk " HorizontalAlignment="Left" Margin="96,128,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="330" FontSize="20" FontFamily="Consolas"/>
-            <Label Content="how can we assist you today?" HorizontalAlignment="Left" Margin="96,162,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="361" FontSize="20" FontFamily="Consolas"/>
+            <Label Content="HI!" HorizontalAlignment="Left" Margin="120,76,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="66" Width="96" FontSize="25" FontFamily="Consolas"/>
+            <Label Content="and welcome to Molk/Unmolk " HorizontalAlignment="Left" Margin="120,128,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="330" FontSize="20" FontFamily="Consolas"/>
+            <Label Content="how can we assist you today?" HorizontalAlignment="Left" Margin="120,162,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="361" FontSize="20" FontFamily="Consolas"/>
         </Grid>
 
 

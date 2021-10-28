@@ -19,7 +19,7 @@
             <Button Name="zipfile" Height="50" DockPanel.Dock="Top" BorderBrush="#00000000" Background="#00000000" >
                 <Image Source="image\zip (4).png"></Image>
             </Button>
-            <Button Name="info" Height="50" DockPanel.Dock="Bottom" Background="#00000000" BorderBrush="#00000000"  >
+            <Button Name="info" Click="info_Click" Height="50" DockPanel.Dock="Bottom" Background="#00000000" BorderBrush="#00000000"  >
                 <Image Source="image\information (4).png"></Image>
             </Button>
             <Button Name="settings" Height="50" DockPanel.Dock="Bottom" BorderBrush="#00000000" Background="#00000000" Foreground="#00000000" >

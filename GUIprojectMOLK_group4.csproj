@@ -56,12 +56,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="empty.xaml.cs">
+      <DependentUpon>empty.xaml</DependentUpon>
+    </Compile>
     <Compile Include="settings.xaml.cs">
       <DependentUpon>settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Unmolk.xaml.cs">
       <DependentUpon>Unmolk.xaml</DependentUpon>
     </Compile>
+    <Page Include="empty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

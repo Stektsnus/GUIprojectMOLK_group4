@@ -25,6 +25,7 @@ namespace GUIprojectMOLK_group4
     {
         private void Unmolk_Click(object sender, RoutedEventArgs e)
         {
+            content.Visibility = Visibility.Hidden;
             mainFrame.NavigationService.Navigate(new Unmolk());
         }
 
@@ -32,6 +33,14 @@ namespace GUIprojectMOLK_group4
         {
             content.Visibility = Visibility.Hidden;
             mainFrame.NavigationService.Navigate(new settings());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            content.Visibility = Visibility.Visible;
+            mainFrame.NavigationService.Navigate(new empty());
+
+
         }
     }
 }

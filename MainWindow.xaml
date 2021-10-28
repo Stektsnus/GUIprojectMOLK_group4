@@ -84,20 +84,21 @@
                 <Image Source="image\information (4).png"></Image>
             </Button>
             <Label Width="49" DockPanel.Dock="Bottom" Height="25" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="settings" FontSize="9" FontFamily="Consolas"></Label>
-            <Button Name="settings" Height="50" DockPanel.Dock="Bottom" BorderBrush="#00000000" Background="#00000000" Foreground="#00000000" >
+            <Button Name="settings" Click="settings_Click" Height="50" DockPanel.Dock="Bottom" BorderBrush="#00000000" Background="#00000000" Foreground="#00000000" >
                 <Image Source="image\settings (20).png" OpacityMask="Black"></Image>
             </Button>
-            
+
         </DockPanel>
         <StackPanel Height="20" Background="#171717" VerticalAlignment="Top"></StackPanel>
-        <Label Content="Home" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="30" Width="50" RenderTransformOrigin="0.94,0.567" Margin="0,-3,0,0"/>
+        <Button Content="Home" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="20" Width="42" RenderTransformOrigin="0.94,0.567" Background="#FF171717" BorderBrush="#FF171717"/>
         <Label Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="30" Width="62" Grid.ColumnSpan="3" Margin="38,-3,0,0"/>
-       
-        <Image Source="image\milklogo.png" Margin="301,51,-76,36"/>
-        <Label Content="HI!" HorizontalAlignment="Left" Margin="96,76,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="66" Width="96" FontSize="25" FontFamily="Consolas"/>
-        <Label Content="and welcome to Mölk.zip " HorizontalAlignment="Left" Margin="96,128,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="265" FontSize="20" FontFamily="Consolas"/>
-        <Label Content="how can i assist you today?:D" HorizontalAlignment="Left" Margin="96,162,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="361" FontSize="20" FontFamily="Consolas"/>
-
+        
+        <Grid Visibility="Visible" x:Name="content">
+            <Image Source="image\milklogo.png" Margin="301,51,-76,36"/>
+            <Label Content="HI!" HorizontalAlignment="Left" Margin="96,76,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="66" Width="96" FontSize="25" FontFamily="Consolas"/>
+            <Label Content="and welcome to Mölk.zip " HorizontalAlignment="Left" Margin="96,128,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="265" FontSize="20" FontFamily="Consolas"/>
+            <Label Content="how can i assist you today?:D" HorizontalAlignment="Left" Margin="96,162,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="361" FontSize="20" FontFamily="Consolas"/>
+        </Grid>
 
 
     </Grid>

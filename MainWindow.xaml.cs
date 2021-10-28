@@ -52,12 +52,12 @@ namespace GUIprojectMOLK_group4
             }
         }
 
-        private void Info_Click(object sender, RoutedEventArgs e)
+        private void info_Click(object sender, RoutedEventArgs e)
         {
             if (ChangeToMiscPage())
             {
                 content.Visibility = Visibility.Hidden;
-                //change page
+                mainFrame.NavigationService.Navigate(new info());
             }
         }
 
@@ -117,11 +117,6 @@ namespace GUIprojectMOLK_group4
                 content.Visibility = Visibility.Visible;
                 mainFrame.NavigationService.Navigate(new empty());
             }
-        }
-
-        private void info_Click(object sender, RoutedEventArgs e)
-        {
-            mainFrame.NavigationService.Navigate(new info());
         }
     }
 }

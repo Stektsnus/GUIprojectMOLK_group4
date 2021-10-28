@@ -173,6 +173,7 @@
     <Resource Include="image\sound128.png" />
     <Resource Include="image\sound64.png" />
     <Resource Include="image\zip64.png" />
+    <Resource Include="image\zipm .png" />
     <Content Include="Molk\molk.exe" />
     <Content Include="Molk\unmolk.exe" />
   </ItemGroup>

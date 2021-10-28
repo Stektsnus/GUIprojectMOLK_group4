@@ -147,6 +147,9 @@
     <Resource Include="image\sunny128.png" />
     <Resource Include="image\sunny32.png" />
     <Resource Include="image\sunny64.png" />
+    <Resource Include="image\moon128.png" />
+    <Resource Include="image\sound128.png" />
+    <Resource Include="image\sound64.png" />
     <Content Include="Molk\molk.exe" />
     <Content Include="Molk\unmolk.exe" />
   </ItemGroup>

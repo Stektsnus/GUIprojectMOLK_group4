@@ -70,16 +70,18 @@ namespace GUIprojectMOLK_group4
             {
                 return false;
             }
-            List<FileData> chosenFiles = new List<FileData>();
-            foreach (FileData item in unmolkFileBox.SelectedItems)
+            List<string> chosenFileNames = new List<string>();
+            foreach (FileData file in unmolkFileBox.SelectedItems)
             {
-                chosenFiles.Add(item);
+                chosenFileNames.Add($"\"{file.Name}\"");
             }
-            foreach (FileData file in SelectedFiles.Values.ToList().Except(chosenFiles))
+            List<string> fileNames = new List<string>();
+            foreach(FileData file in SelectedFiles.Values.ToList())
             {
-                string commandString = $"unmolk \"{chosenMolkFolder.Text}\" -d \"{destinationBox.Text}\" -x \"{file.Name}\"";
-                process.StandardInput.WriteLine(commandString);
+                fileNames.Add($"\"{file.Name}\"");
             }
+            string commandString = $"unmolk -o \"{chosenMolkFolder.Text}\" -x {string.Join(" ", fileNames.Except(chosenFileNames))} -d \"{destinationBox.Text}\"";
+            process.StandardInput.WriteLine(commandString);
             return true;
         }
 
@@ -109,10 +111,8 @@ namespace GUIprojectMOLK_group4
 
         private void removeFileButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (FileData item in unmolkFileBox.SelectedItems)
-            {
-                SelectedFiles.Remove(item.Path);
-            }
+            chosenMolkFolder.Text = "";
+            SelectedFiles = new Dictionary<string, FileData>();
             unmolkFileBox.ItemsSource = SelectedFiles.Values.ToList();
         }
 
@@ -129,6 +129,8 @@ namespace GUIprojectMOLK_group4
                 ProcessMolkFileContent(openFileDialog.FileName);
 
                 await Task.Delay(1000);
+                SelectedFiles = new Dictionary<string, FileData>();
+                ProcessMolkFileContent(openFileDialog.FileName);
                 unmolkFileBox.ItemsSource = SelectedFiles.Values.ToList();
             }
         }

@@ -136,6 +136,7 @@
     <Resource Include="image\zip %288%29.png" />
     <Resource Include="image\zip .png" />
     <Resource Include="image\Mexfolder64.png" />
+    <Resource Include="image\zip64.png" />
     <Content Include="Molk\molk.exe" />
     <Content Include="Molk\unmolk.exe" />
   </ItemGroup>

@@ -16,16 +16,20 @@
             <Button  DockPanel.Dock="Top" x:Name="Unmolk" Height="50" Click="Unmolk_Click" Background="#00000000" BorderBrush="{x:Null}">
                 <Image Source="image\Mexfolder64.png"></Image>
             </Button>
+            <Label Width="46" DockPanel.Dock="Top" Height="25" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="  hello"></Label>
             <Button Name="zipfile" Height="50" DockPanel.Dock="Top" BorderBrush="#00000000" Background="#00000000" >
                 <Image Source="image\zip (4).png"></Image>
             </Button>
+            <Label Width="46" DockPanel.Dock="Top" Height="25" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="  hello"></Label>
             <Button Name="info" Height="50" DockPanel.Dock="Bottom" Background="#00000000" BorderBrush="#00000000"  >
                 <Image Source="image\information (4).png"></Image>
             </Button>
+            <Label Width="46" DockPanel.Dock="Bottom" Height="25" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="settings"></Label>
             <Button Name="settings" Height="50" DockPanel.Dock="Bottom" BorderBrush="#00000000" Background="#00000000" Foreground="#00000000" >
                 <Image Source="image\settings (20).png" OpacityMask="Black"></Image>
             </Button>
-
+            <Label Width="46" DockPanel.Dock="Bottom" Height="25" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="info"></Label>
+            
         </DockPanel>
         <StackPanel Height="20" Background="#171717" VerticalAlignment="Top"></StackPanel>
         <Label Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="30" Width="50" RenderTransformOrigin="0.94,0.567" Margin="0,-3,0,0"/>

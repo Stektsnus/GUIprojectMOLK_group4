@@ -66,21 +66,26 @@
     </Page.Resources>
 
 
-    <Grid Background="#333333" Margin="50,20,0,0">
-        <Label Content=" Dark/light mode" Margin="268,63,224,241" Foreground="White" HorizontalAlignment="Center" Width="258" FontSize="20" FontWeight="Bold"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="295,102,355,254">
-            <Button Height="50" Width="50">
-                <Image Source="image/sunny64.png"/>
-            </Button>
-            <Button Height="50" Width="50">
-                <Image Source="image/moon64.png"/>
-            </Button>
+    <Grid Background="#333333">
+        <StackPanel Orientation="Vertical">
+            <TextBlock TextAlignment="Center" Width="200" Height="30" FontSize="20" FontWeight="Bold" Foreground="#FFFFFF" Margin="0, 50, 0, 10">
+                Dark/light mode
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Height="50" Width="50" Margin="10">
+                    <Image Source="image/sunny64.png"/>
+                </Button>
+                <Button Height="50" Width="50" Margin="10">
+                    <Image Source="image/moon64.png"/>
+                </Button>
+            </StackPanel>
+            <TextBlock TextAlignment="Center" Width="200" Height="30" FontSize="20" FontWeight="Bold" Foreground="#FFFFFF" Margin="0, 50, 0, 10">
+                Volume
+            </TextBlock>
+            <StackPanel Width="500" Orientation="Vertical">
+                <Image HorizontalAlignment="Center" Source="image/sound64.png" Height="50" Width="50" Margin="5"/>
+                <Slider VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" TickPlacement="BottomRight"/>
+            </StackPanel> 
         </StackPanel>
-
-        <Image Source="image/sound64.png" Margin="268,205,422,142"/>
-        <Label Width="12"/>
-        <Slider HorizontalAlignment="Left"  VerticalAlignment="Top" Width="133" TickPlacement="BottomRight" Margin="333,236,0,0"/>
-
-
     </Grid>
 </Page>

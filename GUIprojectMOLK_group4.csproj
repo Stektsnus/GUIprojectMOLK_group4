@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="settings.xaml.cs">
+      <DependentUpon>settings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Unmolk.xaml.cs">
       <DependentUpon>Unmolk.xaml</DependentUpon>
     </Compile>
@@ -71,6 +74,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Unmolk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +143,13 @@
     <Resource Include="image\zip %288%29.png" />
     <Resource Include="image\zip .png" />
     <Resource Include="image\Mexfolder64.png" />
+    <Resource Include="image\moon64.png" />
+    <Resource Include="image\sunny128.png" />
+    <Resource Include="image\sunny32.png" />
+    <Resource Include="image\sunny64.png" />
+    <Resource Include="image\moon128.png" />
+    <Resource Include="image\sound128.png" />
+    <Resource Include="image\sound64.png" />
     <Resource Include="image\zip64.png" />
     <Content Include="Molk\molk.exe" />
     <Content Include="Molk\unmolk.exe" />

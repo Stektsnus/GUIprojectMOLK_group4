@@ -122,7 +122,7 @@ namespace GUIprojectMOLK_group4
             
         }
 
-        private void addFileButton_Click(object sender, RoutedEventArgs e)
+        private async void addFileButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = recentDirectory;
@@ -133,7 +133,8 @@ namespace GUIprojectMOLK_group4
                 chosenMolkFolder.Text = openFileDialog.FileName;
                 SelectedFiles = new Dictionary<string, FileData>();
                 ProcessMolkFileContent(openFileDialog.FileName);
-                
+
+                await Task.Delay(1000);
                 unmolkFileBox.ItemsSource = SelectedFiles.Values.ToList();
             }
         }

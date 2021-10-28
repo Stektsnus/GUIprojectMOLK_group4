@@ -1,7 +1,7 @@
-Archive:  C:/Users/sebas/Desktop/projekttest/testarchive.molk
+Archive:  C:/Users/sebas/Desktop/ziptest/testarchive2.molk
   Length     Date   Time    Name
  --------    ----   ----    ----
-        0  21-10-26 11:03   test1.txt
-        0  21-10-26 11:03   test2.txt
+        0  21-10-22 14:49   test.txt
+        0  21-10-25 14:08   test2.txt
  --------                   -------
         0                   2 files

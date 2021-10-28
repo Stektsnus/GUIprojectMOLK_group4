@@ -69,11 +69,11 @@
 
 
         <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
-        <DockPanel HorizontalAlignment="Left" LastChildFill="False" MinWidth="50" Background="#292929" Margin="0,20,0,0" Width="52">
+        <DockPanel HorizontalAlignment="Left" LastChildFill="False" MinWidth="50" Background="#292929" Margin="0,20,0,0" Width="55">
             <Button  DockPanel.Dock="Top" x:Name="Unmolk" Height="50" Click="Unmolk_Click" Background="#00000000" BorderBrush="{x:Null}">
                 <Image Source="image\Mexfolder64.png"></Image>
             </Button>
-            <Label Width="46" DockPanel.Dock="Top" Height="20" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="Extract" FontSize="9" FontFamily="Consolas"></Label>
+            <Label Width="46" DockPanel.Dock="Top" Height="19" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="Extract" FontSize="9" FontFamily="Consolas" Margin="4,0,5,0"></Label>
             <Button Name="zipfile" Height="50" DockPanel.Dock="Top" BorderBrush="#00000000" Background="#00000000" >
                 <Image Source="image\zip64.png"></Image>
             </Button>

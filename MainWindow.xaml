@@ -79,7 +79,7 @@
             <Label Width="46" DockPanel.Dock="Top" Height="19" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="Archive" FontSize="9" FontFamily="Consolas"></Label>
             <Label Width="46" DockPanel.Dock="Bottom" Height="21" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content=" info" FontSize="9" FontFamily="Consolas"></Label>
 
-            <Button Name="info" Height="50" DockPanel.Dock="Bottom" Background="#00000000" BorderBrush="#00000000"  >
+            <Button Name="info" Click="info_Click" Height="50" DockPanel.Dock="Bottom" Background="#00000000" BorderBrush="#00000000"  >
                 <Image Source="image\information (4).png"></Image>
             </Button>
             <Label Width="49" DockPanel.Dock="Bottom" Height="25" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="settings" FontSize="9" FontFamily="Consolas"></Label>

@@ -85,7 +85,7 @@
             <StackPanel Width="500" Orientation="Vertical">
                 <Image HorizontalAlignment="Center" Source="image/sound64.png" Height="50" Width="50" Margin="5"/>
                 <Slider VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" TickPlacement="BottomRight"/>
-            </StackPanel> 
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

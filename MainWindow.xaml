@@ -91,7 +91,6 @@
         </DockPanel>
         <StackPanel Height="20" Background="#171717" VerticalAlignment="Top"></StackPanel>
         <Button Content="Home" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="20" Width="42" RenderTransformOrigin="0.94,0.567" Background="#FF171717" BorderBrush="#FF171717"/>
-        <Label Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="30" Width="62" Grid.ColumnSpan="3" Margin="38,-3,0,0"/>
         
         <Grid Visibility="Visible" x:Name="content">
             <Image Source="image\milklogo.png" Margin="301,51,-76,36"/>

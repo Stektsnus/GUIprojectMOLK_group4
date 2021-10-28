@@ -68,15 +68,19 @@
 
     <Grid Background="#333333" Margin="50,20,0,0">
         <Label Content=" Dark/light mode" Margin="268,63,224,241" Foreground="White" HorizontalAlignment="Center" Width="258" FontSize="20" FontWeight="Bold"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="295,102,355,254">
             <Button Height="50" Width="50">
-            <Image Source="image/sunny64.png"/>
-        </Button>
-        <Button Height="50" Width="50">
-            <Image Source="image/moon64.png"/>
-        </Button>
+                <Image Source="image/sunny64.png"/>
+            </Button>
+            <Button Height="50" Width="50">
+                <Image Source="image/moon64.png"/>
+            </Button>
         </StackPanel>
-        <Slider HorizontalAlignment="Left" Margin="328,244,0,0" VerticalAlignment="Top" Width="176" TickPlacement="BottomRight"/>
-        <Image Source="image/sound64.png" Margin="231,236,416,104"/>
+
+        <Image Source="image/sound64.png" Margin="268,205,422,142"/>
+        <Label Width="12"/>
+        <Slider HorizontalAlignment="Left"  VerticalAlignment="Top" Width="133" TickPlacement="BottomRight" Margin="333,236,0,0"/>
+
+
     </Grid>
 </Page>

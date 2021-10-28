@@ -87,7 +87,7 @@
                 </TextBlock>
                 <TextBlock x:Name="chosenMolkFolder" HorizontalAlignment="Left" Margin="0,0,0,10">Files</TextBlock>
 
-                <DataGrid x:Name="unmolkFileBox" HeadersVisibility="Column" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="150" MaxHeight="500" Background="#333333" BorderThickness="1" BorderBrush="#8F8F8F" IsReadOnly="True" SelectionMode="Extended" SelectionUnit="FullRow">
+                <DataGrid x:Name="unmolkFileBox" GridLinesVisibility="None" HeadersVisibility="Column" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="150" MaxHeight="500" Background="#333333" BorderThickness="1" BorderBrush="#8F8F8F" IsReadOnly="True" SelectionMode="Extended" SelectionUnit="FullRow">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="Name" Header="Name" />
                         <DataGridTextColumn x:Name="Path" Header="Path" />

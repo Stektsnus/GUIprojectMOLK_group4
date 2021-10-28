@@ -29,6 +29,7 @@ namespace GUIprojectMOLK_group4
         {
             if (ChangeToWorkPage("Unmolk", "Molk"))
             {
+                content.Visibility = Visibility.Hidden;
                 mainFrame.NavigationService.Navigate(new Unmolk());
             }
         }
@@ -37,15 +38,17 @@ namespace GUIprojectMOLK_group4
         {
             if(ChangeToWorkPage("Molk", "Unmolk"))
             {
+                content.Visibility = Visibility.Hidden;
                 mainFrame.NavigationService.Navigate(new Molk());
             }
         }
 
-        private void Settings_Click(object sender, RoutedEventArgs e)
+        private void settings_Click(object sender, RoutedEventArgs e)
         {
             if (ChangeToMiscPage())
             {
-                //change page
+                content.Visibility = Visibility.Hidden;
+                mainFrame.NavigationService.Navigate(new settings());
             }
         }
 
@@ -53,6 +56,7 @@ namespace GUIprojectMOLK_group4
         {
             if (ChangeToMiscPage())
             {
+                content.Visibility = Visibility.Hidden;
                 //change page
             }
         }
@@ -86,6 +90,10 @@ namespace GUIprojectMOLK_group4
                     return true;
                 }
             }
+            else
+            {
+                return true;
+            }
             return false;
         }
         
@@ -100,6 +108,15 @@ namespace GUIprojectMOLK_group4
                     return false;
             }
             return false;
+        }
+
+        private void homeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ChangeToMiscPage())
+            {
+                content.Visibility = Visibility.Visible;
+                mainFrame.NavigationService.Navigate(new empty());
+            }
         }
     }
 }

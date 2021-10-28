@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUIprojectMOLK_group4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" MinHeight="550" Height="550" MinWidth="900" Width="900" 
+        WindowStartupLocation="CenterScreen">
+        
 
   <Grid Background="#333333">
 

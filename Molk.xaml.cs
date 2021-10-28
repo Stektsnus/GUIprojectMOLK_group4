@@ -113,6 +113,8 @@ namespace GUIprojectMOLK_group4
                     FileData item = new FileData(fileName);
                     SelectedFiles.Add(fileName, item);
                     recentDirectory = System.IO.Path.GetDirectoryName(fileName);
+                    Name.Visibility = Visibility.Hidden;
+                    Path.Visibility = Visibility.Hidden;
                 }
                 molkFileBox.ItemsSource = SelectedFiles.Values.ToList();
             }
@@ -125,6 +127,11 @@ namespace GUIprojectMOLK_group4
                 SelectedFiles.Remove(item.Path);
             }
             molkFileBox.ItemsSource = SelectedFiles.Values.ToList();
+        }
+
+        private void molkDestinationBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

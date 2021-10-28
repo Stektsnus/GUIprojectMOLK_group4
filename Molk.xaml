@@ -31,14 +31,14 @@
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Padding" Value="1"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                        <Border x:Name="border" CornerRadius="1" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -370,16 +370,28 @@
 
         <ScrollViewer>
             <StackPanel>
-                <DataGrid HeadersVisibility="Column" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="molkFileBox" Width="500" MinHeight="20" MaxHeight="500" Background="#333333" BorderThickness="1" BorderBrush="#8F8F8F" IsReadOnly="True" SelectionMode="Extended" SelectionUnit="FullRow">
+                <TextBlock TextAlignment="Center" FontSize="25" Margin="0,0,0,10" Width="200">
+                    Molk
+                </TextBlock>
+                <DataGrid HeadersVisibility="Column" GridLinesVisibility="None" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="molkFileBox"  Width="500" MinHeight="150" MaxHeight="500" Background="#333333" BorderThickness="1" BorderBrush="#8F8F8F" IsReadOnly="True" SelectionMode="Extended" SelectionUnit="FullRow">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="Name" Header="Name" />
+                        <DataGridTextColumn x:Name="Path" Header="Path" />
+                    </DataGrid.Columns>
                     <DataGrid.Resources>
                         <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                            <Setter Property="MinWidth" Value="50"/>
+                            <Setter Property="MinWidth" Value="100"/>
                             <Setter Property="Background" Value="#292929" />
-                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Foreground" Value="#FFFFFF" />
+                            <Setter Property="Padding" Value="10,5,5,5" />
                         </Style>
                         <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
                             <Setter Property="Background" Value="#333333" />
                             <Setter Property="Foreground" Value="White" />
+                            
+                        </Style>
+                        <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Margin" Value="7,2,0,2" />
                         </Style>
                         <!--<Style TargetType="ScrollBar">
                         <Setter Property="Background" Value="Red" />
@@ -392,23 +404,23 @@
 
                 <StackPanel Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="500">
                     <DockPanel LastChildFill="False" Margin="0,5,0,0">
-                        <Button x:Name="fileButton" DockPanel.Dock="Right" Width="75" Margin="10,0,0,0" Foreground="White" Click="fileButton_Click">Add Files</Button>
-                        <Button x:Name="fileRemoveButton" DockPanel.Dock="Right" Width="85" Margin="0,0,0,0" Foreground="White" Click="fileRemoveButton_Click">Remove File</Button>
+                        <Button x:Name="fileButton" DockPanel.Dock="Right" Width="100" Height="30" Margin="10,0,0,0" Foreground="#FFFFFF" BorderBrush="#FFFFFF" Click="fileButton_Click">Add</Button>
+                        <Button x:Name="fileRemoveButton" DockPanel.Dock="Right" Width="85" Margin="0,0,0,0" Background="#333333" Foreground="#D25517" BorderBrush="#D25517" Click="fileRemoveButton_Click">Remove</Button>
                     </DockPanel>
 
                     <StackPanel>
-                        <TextBlock>Destination</TextBlock>
-                        <TextBox x:Name="molkDestinationBox"></TextBox>
-                    </StackPanel>
-                    <Button x:Name="destinationButton" HorizontalAlignment="Right" Width="125" Foreground="White" Margin="0,5,0,0" Click="destinationButton_Click">Choose Destination</Button>
-
-                    <StackPanel>
-                        <TextBlock>File Name</TextBlock>
-                        <TextBox x:Name="molkFileName"></TextBox>
+                        <TextBlock Margin="0,0,0,5">Destination</TextBlock>
+                        <TextBox x:Name="molkDestinationBox" Padding="0,1,0,0" Height="20" TextChanged="molkDestinationBox_TextChanged" Background="#333333" BorderBrush="#8F8F8F" Foreground="#FFFFFF"></TextBox>
+                        <Button x:Name="destinationButton" HorizontalAlignment="Right" Width="100" Height="30" BorderBrush="#FFFFFF" Foreground="#FFFFFF" Margin="0,15,0,0" Click="destinationButton_Click">Destination</Button>
                     </StackPanel>
 
                     <StackPanel>
-                        <Button x:Name="molkButton" HorizontalAlignment="Right" Height="25" Width="100" Foreground="White" Click="molkButton_Click">ARCHIVE</Button>
+                        <TextBlock  Margin="0,0,0,5">File Name</TextBlock>
+                        <TextBox x:Name="molkFileName" Padding="0,1,0,0" Height="20" Background="#333333" BorderBrush="#8F8F8F" Foreground="#FFFFFF">
+                            
+                            
+                        </TextBox>
+                        <Button x:Name="molkButton" Margin="0,15,0,0" HorizontalAlignment="Right" Height="30" Width="100" BorderBrush="#FFFFFF" Foreground="#FFFFFF" Click="molkButton_Click">Molk</Button>
                     </StackPanel>
 
                 </StackPanel>

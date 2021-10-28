@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -23,6 +24,16 @@ namespace GUIprojectMOLK_group4
         public Unmolk()
         {
             InitializeComponent();
+        }
+
+        private void destinationButton_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.RootFolder = Environment.SpecialFolder.MyComputer;
+            if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                molkDestinationBox.Text = folderBrowserDialog.SelectedPath;
+            }
         }
     }
 }

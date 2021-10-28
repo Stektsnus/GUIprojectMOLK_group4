@@ -23,24 +23,83 @@ namespace GUIprojectMOLK_group4
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string currentPage = "Main";
+        public bool leavePage;
         private void Unmolk_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.NavigationService.Navigate(new Unmolk());
+            if (ChangeToWorkPage("Unmolk", "Molk"))
+            {
+                mainFrame.NavigationService.Navigate(new Unmolk());
+            }
         }
 
         private void Molk_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.NavigationService.Navigate(new Molk());
+            if(ChangeToWorkPage("Molk", "Unmolk"))
+            {
+                mainFrame.NavigationService.Navigate(new Molk());
+            }
         }
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-
+            if (ChangeToMiscPage())
+            {
+                //change page
+            }
         }
 
         private void Info_Click(object sender, RoutedEventArgs e)
         {
+            if (ChangeToMiscPage())
+            {
+                //change page
+            }
+        }
 
+        private bool ChangeToWorkPage(string workPage, string otherWorkPage)
+        {
+            if (currentPage == otherWorkPage)
+            {
+                leavePage = WarningMessage();
+                if (leavePage)
+                {
+                    currentPage = workPage;
+                    return true;
+                }
+            }
+            else if (currentPage != workPage)
+            {
+                currentPage = workPage;
+                return true;
+            }
+            return false;
+        }
+        private bool ChangeToMiscPage()
+        {
+            if (currentPage == "Molk" || currentPage == "Unmolk")
+            {
+                leavePage = WarningMessage();
+                if (leavePage)
+                {
+                    currentPage = "Other";
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        private bool WarningMessage()
+        {
+            MessageBoxResult result = System.Windows.MessageBox.Show("Do you want to leave your current progress?", "MOLK/UNMOLK", MessageBoxButton.YesNo);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    return true;
+                case MessageBoxResult.No:
+                    return false;
+            }
+            return false;
         }
     }
 }

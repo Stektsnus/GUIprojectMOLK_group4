@@ -18,9 +18,17 @@
             <Button DockPanel.Dock="Top" x:Name="Unmolk" Height="50" Click="Unmolk_Click">
                 <Image Source="image\Mexfolder64.png"></Image>
             </Button>
+            <Button DockPanel.Dock="Top" x:Name="Molk" Height="50" Click="Molk_Click">
+                MOLK
+            </Button>
+            <Button DockPanel.Dock="Bottom" x:Name="Info" Height="50" Click="Info_Click">
+                Info
+            </Button>
+            <Button DockPanel.Dock="Bottom" x:Name="Settings" Height="50" Click="Settings_Click">
+                Settings
+            </Button>
         </DockPanel>
         <StackPanel Height="20" Background="#171717" VerticalAlignment="Top"></StackPanel>
-
-
+      
     </Grid>
 </Window>

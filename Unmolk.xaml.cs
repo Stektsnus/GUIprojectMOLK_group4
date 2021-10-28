@@ -132,6 +132,8 @@ namespace GUIprojectMOLK_group4
                 SelectedFiles = new Dictionary<string, FileData>();
                 ProcessMolkFileContent(openFileDialog.FileName);
                 unmolkFileBox.ItemsSource = SelectedFiles.Values.ToList();
+                Name.Visibility = Visibility.Hidden;
+                Path.Visibility = Visibility.Hidden;
             }
         }
 

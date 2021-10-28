@@ -19,8 +19,8 @@
         </Style>
         <SolidColorBrush x:Key="Button.Static.Background" Color="#D25517"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FFFFFF"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#5F2383"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#333333"/>
         <SolidColorBrush x:Key="Button.Pressed.Background" Color="Black"/>
         <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
@@ -37,6 +37,7 @@
             <Setter Property="Padding" Value="1"/>
             <Setter Property="Width" Value="100" />
             <Setter Property="Height" Value="30" />
+            <Setter Property="FontFamily" Value="Consolas" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -70,45 +71,62 @@
         <Grid.Resources>
             <Style TargetType="TextBlock">
                 <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontFamily" Value="Consolas"/>
             </Style>
             <Style TargetType="StackPanel">
                 <Setter Property="Margin" Value="0,25,0,0"/>
             </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="FontFamily" Value="Consolas" />
+            </Style>
         </Grid.Resources>
     <ScrollViewer>
             <StackPanel Width="500">
-                <TextBlock x:Name="chosenMolkFolder" HorizontalAlignment="Left">Files</TextBlock>
+                <TextBlock TextAlignment="Center" FontSize="25" Margin="0,0,0,10" Width="200">
+                    Unmolk
+                </TextBlock>
+                <TextBlock x:Name="chosenMolkFolder" HorizontalAlignment="Left" Margin="0,0,0,10">Files</TextBlock>
 
                 <DataGrid x:Name="unmolkFileBox" HeadersVisibility="Column" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="150" MaxHeight="500" Background="#333333" BorderThickness="1" BorderBrush="#8F8F8F" IsReadOnly="True" SelectionMode="Extended" SelectionUnit="FullRow">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="Name" Header="Name" />
+                        <DataGridTextColumn x:Name="Path" Header="Path" />
+                    </DataGrid.Columns>
                     <DataGrid.Resources>
                         <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                            <Setter Property="MinWidth" Value="50"/>
+                            <Setter Property="MinWidth" Value="100"/>
                             <Setter Property="Background" Value="#292929" />
-                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Foreground" Value="#FFFFFF" />
+                            <Setter Property="Padding" Value="10,5,5,5" />
+                            <Setter Property="FontFamily" Value="Consolas" />
                         </Style>
                         <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
                             <Setter Property="Background" Value="#333333" />
                             <Setter Property="Foreground" Value="White" />
                         </Style>
+                        <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Margin" Value="7,2,0,2" />
+                            <Setter Property="FontFamily" Value="Consolas" />
+                        </Style>
                     </DataGrid.Resources>
                 </DataGrid>
                 
-                <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="500">
+                <StackPanel Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="500">
                     
                     <DockPanel LastChildFill="False" Margin="0,5,0,0">
-                        <Button x:Name="addFileButton" Click="addFileButton_Click" Content="Add" DockPanel.Dock="Right" Width="75" Margin="10,0,0,0" Foreground="White"></Button>
-                        <Button x:Name="removeFileRemoveButton" DockPanel.Dock="Right" Width="85" Margin="0,0,0,0" Foreground="White" Click="removeFileButton_Click" Content="Clear"></Button>
+                        <Button x:Name="addFileButton" Click="addFileButton_Click" Content="Add" DockPanel.Dock="Right" Width="100" Height="30" Margin="10,0,0,0" Foreground="White"></Button>
+                        <Button x:Name="removeFileRemoveButton" DockPanel.Dock="Right" Width="100" Height="30" Margin="0,0,0,0" Background="#333333" Foreground="#D25517" BorderBrush="#D25517" Click="removeFileButton_Click" Content="Clear"></Button>
                     </DockPanel>
                     
                     <StackPanel>
-                        <TextBlock>Destination</TextBlock>
-                        <TextBox x:Name="destinationBox"></TextBox>
+                        <TextBlock Margin="0,0,0,5">Destination</TextBlock>
+                        <TextBox x:Name="destinationBox" Padding="0,1,0,0" Height="20" Background="#333333" BorderBrush="#8F8F8F" Foreground="#FFFFFF"></TextBox>
+                        <Button x:Name="destinationButton" HorizontalAlignment="Right" Width="100" Height="30" Foreground="White" Margin="0,15,0,0" Click="destinationButton_Click">Destination</Button>
                     </StackPanel>
-                    <Button x:Name="destinationButton" HorizontalAlignment="Right" Width="125" Foreground="White" Margin="0,5,0,0" Click="destinationButton_Click">Choose Destination</Button>
 
 
                     <StackPanel>
-                        <Button x:Name="unmolkButton" HorizontalAlignment="Right" Height="25" Width="100" Foreground="White" Click="unmolkButton_Click">UNARCHIVE</Button>
+                        <Button x:Name="unmolkButton" HorizontalAlignment="Right" Width="100" Height="30" Foreground="White" Click="unmolkButton_Click">Unmolk</Button>
                     </StackPanel>
 
                 </StackPanel>

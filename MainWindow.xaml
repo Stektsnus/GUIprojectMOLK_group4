@@ -74,7 +74,7 @@
             </Button>
             <Label DockPanel.Dock="Top" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="Unmolk" FontSize="15" FontFamily="Consolas" Margin="4,0,5,0"></Label>
             <Button Name="zipfile" Click="Molk_Click" Padding="10" DockPanel.Dock="Top" BorderBrush="#00000000" Background="#00000000" >
-                <Image Source="image\zip64.png"></Image>
+                <Image Source="image\zipm .png"></Image>
             </Button>
             <Label DockPanel.Dock="Top" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="Molk" FontSize="15" FontFamily="Consolas"></Label>
             <Label DockPanel.Dock="Bottom" Background="#00000000" Foreground="White" HorizontalAlignment="Center" Content="Info" FontSize="15" FontFamily="Consolas"></Label>
@@ -92,7 +92,7 @@
         <StackPanel Height="30" Background="#171717" VerticalAlignment="Top"></StackPanel>
         <Button x:Name="homeButton" Content="Home" Click="homeButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFDFDFD" Height="30" Width="60" RenderTransformOrigin="0.94,0.567" Background="#FF171717" BorderBrush="#FF171717"/>
         <Grid Visibility="Visible" x:Name="content">
-            <Image Source="image\milklogo.png" Margin="301,51,-76,36"/>
+            <Image Source="image\milklogo.png" Margin="332,76,-76,36"/>
             <Label Content="HI!" HorizontalAlignment="Left" Margin="120,76,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Height="66" Width="96" FontSize="25" FontFamily="Consolas"/>
             <Label Content="and welcome to Molk/Unmolk " HorizontalAlignment="Left" Margin="120,128,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="330" FontSize="20" FontFamily="Consolas"/>
             <Label Content="how can we assist you today?" HorizontalAlignment="Left" Margin="120,162,0,0" VerticalAlignment="Top" Foreground="White" Height="40" Width="361" FontSize="20" FontFamily="Consolas"/>

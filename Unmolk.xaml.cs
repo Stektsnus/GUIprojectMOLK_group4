@@ -147,7 +147,7 @@ namespace GUIprojectMOLK_group4
         private void ConvertOutputToFileDataObjects(Process process, string fileName)
         {
 
-            string commandString = $"unmolk -l {fileName}";
+            string commandString = $"unmolk -l \"{fileName}\"";
             string tempDataFileName = "tempfile.txt";
             using (StreamWriter sw = new StreamWriter($"{MolkFolderPath}\\{tempDataFileName}", true))
             {

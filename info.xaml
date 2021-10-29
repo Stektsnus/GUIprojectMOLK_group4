@@ -19,7 +19,7 @@
                 <Label Content="- Zip folders " Margin="0,10,0,0" Foreground="White" FontFamily="Consolas" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
-                <Image Source="image/information (4).png" Height="50" Width="59" />
+                <Image Source="image\settings (20).png" Height="50" Width="59" />
                 <Label Content="- Settings (nonefuntional) " Margin="0,10,0,0" Foreground="White" FontFamily="Consolas" />
             </StackPanel>
             <StackPanel Orientation="Horizontal"/>
